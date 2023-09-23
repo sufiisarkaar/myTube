@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 "  >
+      <!-- <img [src]="videoBox.thumbnailUrl" width="100%" height="80%"> -->
+      <video width="100%" controls autoplay class="round"  >
+        <source [src]="videoUrl" type="video/mp4">
+        <source [src]="videoUrl" type="video/webm">
+      </video>
+      
+      <p>{{ videoBox.videoUrl }}</p>
+    </div>
+    <div class="col-12">
+
+      <h4>{{ videoBox.title }}</h4>
+
+      <div class="row d-flex">
+        <div class="title col-2">
+          <h6>{{videoBox.author }} <br>
+            {{ videoBox.subscriber }} </h6>
+        </div>
+
+
+        <div class="btnS col-2">
+          <button class="btn btn-dark rounded-pill">Subscribe</button>
+        </div>
+
+        <div class="col-12 p-3 rounded" style="background-color: lightgrey;">
+          <b>{{ videoBox.views }} views, </b>
+          {{ videoBox.uploadTime }}
+          <br>
+          <small>{{ videoBox.description }}</small>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container mt-2">
+  <div class="row d-flex">
+    <div class="col-3">
+      <div class="row d-flex">
+        <div class="col-6">
+          <h5>Comments</h5>
+        </div>
+        <div class="col-6">
+          <h5>Sort by</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3 mb-3">
+      <div class="row d-flex">
+        <div class="col-1 align-right">
+          <div class="bg-dark rounded-circle" style="height: 40px; width: 40px;"></div>
+        </div>
+        <div class="col-8"><input type="text" class="form-control" #commentInput>
+          <div class="btncomment col-3" *ngIf="commentInput.value.length > 0">
+            <button class="btn">Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-8 mt-4 p-3 m-5" *ngFor="let comments of [1,2,2,2,2,2,2] ; let i = index">
+      <div class="row d-flex">
+        <div class="col-1 align-right">
+          <div class="bg-primary rounded-circle" style="height: 40px; width: 40px;"></div>
+        </div>
+        <div class="col-11">
+          <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, possimus.</h6>
+        </div>
+
+        <div class="col-7 d-flex justify-content-center mb-2 mt-2 m-2">
+          <div class="likeBTN col-2">
+            <button class="btn">Like</button>
+          </div>
+          <div class="commentBTN col-2">
+            <button class="btn" (click)="replyOn(i)">{{ replyBox[i]? 'Close' : 'Reply' }}</button>
+          </div>
+
+          <div class="commentBTN col-12 m-2" *ngIf="replyBox[i]">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

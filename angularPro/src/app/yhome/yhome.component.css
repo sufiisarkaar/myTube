@@ -1,0 +1,16 @@
+.cardBody{
+    cursor: pointer;
+}
+
+.card-video {
+   
+    transition: transform 0.5s; /* Transition effect to make it smooth */
+  }
+  
+  .card-video:hover {
+    transform: scale(1.1); /* Scale up to 1.1x the original size on hover */
+  }
+
+  .round{
+    border-radius: 30px !important;
+}

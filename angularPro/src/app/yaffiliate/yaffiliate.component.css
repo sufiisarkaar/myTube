@@ -1,0 +1,30 @@
+.sticky-top{
+    position: sticky;
+    top:65px;
+    height: 80vh;
+    overflow: auto;
+    border: 1px solid red;
+}
+
+.details p{
+    font-size: 12px;
+}
+.details small{
+    font-size: 12px;
+}
+.details b{
+    font-size: 12px;
+}
+
+.video{
+    cursor: pointer;
+}
+
+.video {
+   
+    transition: transform 0.2s; /* Transition effect to make it smooth */
+  }
+  
+  .video:hover {
+    transform: scale(1.5); /* Scale up to 1.1x the original size on hover */
+  }

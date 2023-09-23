@@ -1,0 +1,22 @@
+<div class="container-fluid card sticky-top">
+  <div class="row d-flex">
+    <div class="col-12 text-center mt-2 mb-2">
+      <h6>Suggested Videos</h6>
+      <hr>
+
+      <div class="row d-flex justify-content-center"  *ngFor="let video of affiliateVideo">
+        <div class="col-sm-6 col-md-6 col-lg-6 video" (click)="videoID(video.id)">
+            <img [src]="video.thumbnailUrl" height="60" width="100">
+          </div>
+    
+          <div class="col-sm-6 col-md-5 col-lg-6 details text-start p-0">
+           <p class="text-muted">{{ video.title }} <br>
+               {{ video.author }} <br>
+               {{ video.views }} views</p>
+          </div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
