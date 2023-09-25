@@ -13,3 +13,25 @@ header nav ul li{
     margin: 5px;
     padding: 1%;
 }
+
+.youtube-search-bar {
+    height: 50px;
+    width: 100%;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+  }
+  
+  mat-icon {
+    color: #757575;
+  }
+  
+  button {
+    margin-left: 8px;
+  }
+
+  .matIcon{
+    margin-top: 1px;
+  }
+  

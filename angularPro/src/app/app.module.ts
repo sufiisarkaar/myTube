@@ -10,7 +10,14 @@ import { YaboutComponent } from './yabout/yabout.component';
 import { YcontactComponent } from './ycontact/ycontact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { YaffiliateComponent } from './yaffiliate/yaffiliate.component';
-import { VideoPlayedComponent } from './video-played/video-played.component'
+import { VideoPlayedComponent } from './video-played/video-played.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +28,19 @@ import { VideoPlayedComponent } from './video-played/video-played.component'
     YaboutComponent,
     YcontactComponent,
     YaffiliateComponent,
-    VideoPlayedComponent
+    VideoPlayedComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

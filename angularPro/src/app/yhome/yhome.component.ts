@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { VideoService } from '../services/video.service';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-yhome',
@@ -9,13 +10,16 @@ import { VideoService } from '../services/video.service';
 export class YhomeComponent implements OnInit {
   videoBox: any;
 
+  searchResults: any[] = [];
 
-  constructor(private VS: VideoService) { }
+  constructor(private VS: VideoService,private searchService: SearchService) { }
 
 
 
   ngOnInit(): void {
     this.getVideos();
+
+
   }
 
 

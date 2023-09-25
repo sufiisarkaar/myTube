@@ -1,23 +1,29 @@
-<nav class="navbar navbar-expand-lg bg-dark sticky-top " data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-light sticky-top " data-bs-theme="light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <a class="navbar-brand" href="#"><img [src]="logo" height="40"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <div class="youtube-search-bar">
+              <mat-form-field class="search-input">
+                <input matInput type="text" [(ngModel)]="searchQuery" (input)="onSearch()">
+                <mat-icon matSuffix>search</mat-icon>
+                <ul *ngIf="searchResults.length > 0">
+                  <li *ngFor="let result of searchResults">{{ result }}</li>
+                </ul>
+              </mat-form-field>
+             
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
+         
         </ul>
-        <span class="navbar-text">
-          Navbar text with an inline element
+        <span class="navbar-text d-flex">
+          <mat-icon class="matIcon">people </mat-icon>
+         <a routerLink="/login">
+         &nbsp;Sign in</a>
         </span>
       </div>
     </div>

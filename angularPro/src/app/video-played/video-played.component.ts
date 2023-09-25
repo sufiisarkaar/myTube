@@ -15,8 +15,8 @@ export class VideoPlayedComponent implements OnInit  {
   id: any;
 
   constructor(private VS: VideoService, private route: ActivatedRoute) {
-    this.videoPlayBySuggested();
-    this.videoPlayByRoute();
+    // this.videoPlayBySuggested();
+    // this.videoPlayByRoute();
   }
 
 
@@ -50,8 +50,8 @@ export class VideoPlayedComponent implements OnInit  {
         if (video) {
           console.log("find");
           this.videoBox = video;
-          this.videoUrl = this.videoBox.videoUrl ;
-          console.log(this.videoBox.videoUrl, "videobox");
+          this.videoUrl = video.videoUrl ;
+          console.log(video, video.videoUrl, "videoboxUrl");
 
         } else {
 
@@ -77,8 +77,8 @@ export class VideoPlayedComponent implements OnInit  {
       if (video) {
         console.log("find");
         this.videoBox = video;
-        this.videoUrl = this.videoBox.videoUrl ;
-        console.log(this.videoUrl, "videoboxUrl");
+        this.videoUrl = video.videoUrl ;
+        console.log(video, video.videoUrl, "videoboxUrl");
 
       } else {
 
