@@ -59,10 +59,11 @@
         <div class="col-1 align-right">
           <div class="bg-dark rounded-circle" style="height: 40px; width: 40px;"></div>
         </div>
-        <div class="col-8"><input type="text" class="form-control" #commentInput>
-          <div class="btncomment col-3" *ngIf="commentInput.value.length > 0">
-            <button class="btn">Comment</button>
-          </div>
+        <div class="col-8"><input type="text" class="form-control" #commentInput [ngModel]>
+         
+        </div>
+        <div class="btncomment col-2" *ngIf="commentInput.value.length > 0">
+          <button class="btn btn-dark btn-sm">Comment</button>
         </div>
       </div>
     </div>

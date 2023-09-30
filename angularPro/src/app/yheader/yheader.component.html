@@ -9,11 +9,11 @@
           <li class="nav-item">
             <div class="youtube-search-bar">
               <mat-form-field class="search-input">
-                <input matInput type="text" [(ngModel)]="searchQuery" (input)="onSearch()">
-                <mat-icon matSuffix>search</mat-icon>
-                <ul *ngIf="searchResults.length > 0">
-                  <li *ngFor="let result of searchResults">{{ result }}</li>
+                <input matInput type="text" [(ngModel)]="searchQuery" (input)="onSearch()" (focusout)="closeDropdown()">
+                <ul *ngIf=" searchResults.length > 0">
+                  <li *ngFor="let result of searchResults"><a (click)="navigate(result.id)">{{ result.title }}</a></li>
                 </ul>
+                <mat-icon matSuffix>search</mat-icon>
               </mat-form-field>
              
             </div>

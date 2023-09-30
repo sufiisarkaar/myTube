@@ -16,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -40,6 +41,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

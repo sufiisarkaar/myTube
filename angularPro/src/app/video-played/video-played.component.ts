@@ -15,8 +15,8 @@ export class VideoPlayedComponent implements OnInit  {
   id: any;
 
   constructor(private VS: VideoService, private route: ActivatedRoute) {
-    // this.videoPlayBySuggested();
-    // this.videoPlayByRoute();
+    this.videoPlayBySuggested();
+    this.videoPlayByRoute();
   }
 
 

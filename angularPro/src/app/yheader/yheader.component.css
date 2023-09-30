@@ -35,3 +35,6 @@ header nav ul li{
     margin-top: 1px;
   }
   
+  li{
+    cursor: pointer;
+  }
