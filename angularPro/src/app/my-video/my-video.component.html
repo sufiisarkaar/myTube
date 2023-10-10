@@ -1,0 +1,54 @@
+<div class="container">
+  <form [formGroup]="videoPostForm">
+    <div class="row">
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="title" placeholder="Title">
+</div>
+
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="thumbnailUrl" placeholder="Thumbnail Url">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="duration" placeholder="Duration">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="uploadTime" placeholder="Title">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="views" placeholder="View">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="author" placeholder="Author">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="videoUrl" placeholder="Video Url">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="description" placeholder="Description">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="subscriber" placeholder="Subscriber">
+</div>
+
+<div class="col-4">
+    <input type="text" class="form-control mt-2" formControlName="isLive" placeholder="IS LIVE">
+</div>
+
+<div class="col-4">
+    <button type="text" class="btn btn-dark mt-2 d-flex" (click)="postVideo()">
+        <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Posting...' : 'Post Video'   }} </button>
+</div>
+
+
+    </div>
+  </form>
+</div>

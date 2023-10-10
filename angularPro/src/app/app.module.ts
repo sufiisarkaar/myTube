@@ -18,6 +18,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ProfileComponent } from './profile/profile.component';
+import { MyVideoComponent } from './my-video/my-video.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 @NgModule({
@@ -31,7 +36,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     YaffiliateComponent,
     VideoPlayedComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent,
+    MyVideoComponent
   ],
   imports: [
     FormsModule,
@@ -42,8 +49,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    BrowserAnimationsModule ,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

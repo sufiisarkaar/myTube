@@ -3,20 +3,28 @@
     <div class="backGroundIMG">
 
       <div class="row d-flex justify-content-center">
-        <div class="col-4 m-3 p-2 mt-5">
+        <div class="col-lg-6 col-sm-12 col-md-12 col-12 m-3 p-2 mt-5">
           <form [formGroup]="loginForm">
             <div class="email m-3 p-2">
-              <input type="text" formControlName="email" class="form-control" />
+              <input type="text" formControlName="email" class="form-control" placeholder="Enter email"/>
             </div>
 
             <div class="password m-3 p-2">
-              <input type="password" formControlName="password" class="form-control" />
+              <input type="password" formControlName="password" class="form-control" placeholder="Enter password"/>
             </div>
 
-            <div class="loginBTN m-3 p-2">
-              <input type="button" class="btn btn-sm btn-dark" value="Login" (click)="Login()" />
+            
+            <div class="row d-flex ">
+            <div class="loginBTN m-3 p-2 col-4 col-lg-4 col-sm-4 col-md-4">
+              <button type="button" class="btn btn-sm btn-dark d-flex" (click)="Login()" >
+                <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Waiting...' : 'Login'   }}
+              </button>
             </div>
 
+            <div class="registerBTN m-3 p-2 col-6 col-lg-6 col-sm-6 col-md-6">
+              <input type="button" class="btn btn-sm btn-primary" value="Don't Have a account? Register here!" (click)="register()" />
+            </div>
+          </div>
           </form>
 
         </div>

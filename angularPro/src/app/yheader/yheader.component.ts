@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
 import { VideoService } from '../services/video.service';
@@ -10,33 +11,38 @@ import { VideoService } from '../services/video.service';
 })
 
 export class YheaderComponent implements OnInit {
-logo: string = "../assets/logo/mytube-r.png";
+  logo: string = "../assets/logo/mytube-r.png";
 
-searchQuery: any = '';
+  searchQuery: any = '';
   searchResults: any[] = [];
   searchData: { title: string, id: string }[] = [];
 
-searchID:any;
+  searchID: any;
 
-constructor(private VS:VideoService, private R:Router){
-  // this.searchResultData();
-}
+  constructor(private VS: VideoService, private R: Router, private _snack:MatSnackBar) {
+    // this.searchResultData();
+  }
 
-ngOnInit(){
-  this.searchResultData();
-}
+  ngOnInit() {
+    this.searchResultData();
+    this.checkUser();
 
-navigate(id:any){
-  this.VS.videoId.next(id);
-this.R.navigate(['/videoplay',id]);
-}
+    this.VS.loggedUser.subscribe((res:any)=>{
+      this.loggedUser = res;
+    })
+  }
 
-closeDropdown() {
-  // Set a small timeout to allow for clicking on the dropdown items before closing
-  setTimeout(() => {
-    this.searchResults = [];
-  }, 200);
-}
+  navigate(id: any) {
+    this.VS.videoId.next(id);
+    this.R.navigate(['/videoplay', id]);
+  }
+
+  closeDropdown() {
+    // Set a small timeout to allow for clicking on the dropdown items before closing
+    setTimeout(() => {
+      this.searchResults = [];
+    }, 200);
+  }
 
   onSearch() {
     this.searchResults = this.filterResults(this.searchQuery);
@@ -54,7 +60,32 @@ closeDropdown() {
   filterResults(query: any): any[] {
     // Replace this with your actual data source and search logic
     const data = this.searchData;
-    return data.filter((item:any) => item.title.toLowerCase().includes(query.toLowerCase()));
+    return data.filter((item: any) => item.title.toLowerCase().includes(query.toLowerCase()));
+  }
+
+  userName: any;
+  userEmail: any;
+  userId: any;
+  userNumber: any;
+  loggedUser:any;
+
+  checkUser() {
+    const user = localStorage.getItem("user");
+    const userFind = user && JSON.parse(user);
+    if (userFind) {
+      this.userId = userFind.id;
+      this.userName = userFind.name;
+      this.userNumber = userFind.number;
+      this.userEmail = userFind.email;
+}
+
+  }
+
+  logOut(){
+    this.VS.loggedUser.next(false);
+    this._snack.open(this.userName, "you are fired", { duration:5000 })
+    localStorage.removeItem("user");
+    this.R.navigateByUrl('/');
   }
 
 }

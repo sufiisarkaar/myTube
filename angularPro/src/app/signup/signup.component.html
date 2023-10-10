@@ -1,1 +1,46 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="backGroundIMG">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 col-sm-12 col-md-12 col-12 m-3 p-2 mt-5">
+            <form [formGroup]="signUpForm">
+
+                <div class="email m-3 p-2">
+                    <input type="text" formControlName="name" class="form-control" placeholder="Enter name"/>
+                  </div>
+
+                  <div class="email m-3 p-2">
+                    <input type="text" formControlName="number" class="form-control" placeholder="Enter number"/>
+                  </div>
+
+
+
+              <div class="email m-3 p-2">
+                <input type="text" formControlName="email" class="form-control" placeholder="Enter email"/>
+              </div>
+  
+              <div class="password m-3 p-2">
+                <input type="password" formControlName="password" class="form-control" placeholder="Enter password"/>
+              </div>
+  
+              
+             
+              <div class="loginBTN m-3 p-2 col-6 col-lg-6 col-sm-6 col-md-6">
+                <button type="button" class="btn btn-sm btn-dark d-flex" (click)="register()" > 
+                   <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Creating your profile...' : 'Signup'   }}</button>
+              </div>
+  
+              <div class="registerBTN m-3 p-2 col-6 col-lg-6 col-sm-6 col-md-6 ">
+                <input type="button" class="btn btn-sm btn-danger shadow" value="Already Have a account? Login here!" (click)="login()" />
+              </div>
+            
+            </form>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

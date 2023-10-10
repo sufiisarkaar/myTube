@@ -13,6 +13,12 @@ export class VideoPlayedComponent implements OnInit  {
   videoBox: any;
   videoUrl: string;
   id: any;
+  title: any;
+  author: any;
+  views: any;
+  uploadTime: any;
+  description: any;
+  subscriber: any;
 
   constructor(private VS: VideoService, private route: ActivatedRoute) {
     this.videoPlayBySuggested();
@@ -24,11 +30,19 @@ export class VideoPlayedComponent implements OnInit  {
   ngOnInit() {
     this.videoPlayBySuggested();
     this.videoPlayByRoute();
+    this.checkUser();
   }
 
   
 
- 
+  checkUser() {
+    const getLocalUser = JSON.parse(localStorage.getItem("user"));
+    if (getLocalUser) {
+      this.VS.loggedUser.next(true)
+    } else {
+      this.VS.loggedUser.next(false)
+    }
+  }
 
 
   replyOn(index: any) {
@@ -51,6 +65,12 @@ export class VideoPlayedComponent implements OnInit  {
           console.log("find");
           this.videoBox = video;
           this.videoUrl = video.videoUrl ;
+          this.title = video.title ;
+          this.author = video.author ;
+          this.views = video.view ;
+          this.uploadTime = video.uploadTime ;
+          this.subscriber = video.subscriber ;
+          this.description = video.description ;
           console.log(video, video.videoUrl, "videoboxUrl");
 
         } else {

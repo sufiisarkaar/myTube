@@ -1,0 +1,32 @@
+<div class="container">
+    <form [formGroup]="updateForm" class="form">
+    <div class="row">
+
+        <div class="col-4">
+            <input type="text" class="form-control" [(ngModel)]="user.name" formControlName="name">
+        </div>
+
+        <div class="col-4">
+            <input type="email" class="form-control" [(ngModel)]="user.email" formControlName="email">
+        </div>
+
+        <div class="col-4">
+            <input type="text" class="form-control" [(ngModel)]="user.number" formControlName="number">
+        </div>
+
+        
+        <div class="col-4 mt-4 mb-2 d-flex">
+            <input type="{{ visible ? 'text' : 'password' }}" class="form-control" [(ngModel)]="user.password" formControlName="password">
+            <mat-icon class="matIcon" (click)="visiblePassword()" *ngIf="!visible">visibility</mat-icon>
+            <mat-icon class="matIcon" (click)="visiblePassword()" *ngIf="visible">visibility_off</mat-icon>
+        </div>
+
+        <div class="col-8 mt-4 mb-2 d-flex">
+            <button class="btn btn-dark d-flex" (click)="updateUser()"> <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Updating...' : 'Update Profile'   }}  </button>
+        </div>
+
+    
+
+        </div>
+    </form>
+</div>

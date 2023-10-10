@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light sticky-top " data-bs-theme="light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img [src]="logo" height="40"></a>
+      <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" ><img [src]="logo" height="40"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,13 +18,33 @@
              
             </div>
           </li>
+        
+          <!-- <span class="navbar-text d-flex" *ngIf="userName">
+            <h4>Welcome ☺  {{ userName }}</h4>
+          </span> -->
          
         </ul>
-        <span class="navbar-text d-flex">
-          <mat-icon class="matIcon">people </mat-icon>
-         <a routerLink="/login">
-         &nbsp;Sign in</a>
-        </span>
+
+
+
+
+       <span class="navbar-text d-flex">
+  <mat-icon class="matIcon">people </mat-icon>
+  <a routerLink="/login" *ngIf="!loggedUser">
+    &nbsp;Sign in
+  </a>
+
+  <ul class="profile-options" *ngIf="loggedUser">
+    <li [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</li>
+    <li [routerLink]="['/myVideo']" routerLinkActive="router-link-active" >My Video</li>
+    <li (click)="logOut()">Logout</li>
+  </ul>
+
+  
+</span>
+
+
+        
       </div>
     </div>
   </nav>

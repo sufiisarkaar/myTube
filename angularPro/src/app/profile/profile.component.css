@@ -1,0 +1,13 @@
+.matIcon{
+    margin-left: -30px;
+    margin-top: 8px;
+    color: black;
+}
+
+.matIcon:hover{
+    color: rgb(236, 9, 9);
+}
+
+.matSpinner{
+    font-size: 10px !important;
+}

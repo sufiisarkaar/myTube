@@ -6,6 +6,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class VideoService {
 
+  loggedUser = new EventEmitter<any>();
   videoId  = new  EventEmitter<any>();
 
   constructor( private http:HttpClient) { }
@@ -25,5 +26,9 @@ export class VideoService {
    userGet(){
     return this.http.get("http://localhost:3000/user");
    }
+
+
+
+   
   
 }

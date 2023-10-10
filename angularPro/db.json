@@ -1,14 +1,58 @@
 {
   "user": [
     {
+      "name": "Saud Mirza",
       "email": "saud@gmail.com",
-      "password": "12345",
+      "number": "9988998899",
+      "password": "123456",
+      "id": "7391a960-9d90-46dd-ac71-da2ea8a648b3"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Maruf Ka Dance",
+      "thumbnailUrl": "https://www.coderepublics.com/tools/Images/youtube-thumbnail-size.png",
+      "duration": "5:00",
+      "uploadTime": "Tue Oct 10 2023 19:02:21 GMT+0530 (India Standard Time)",
+      "views": "5",
+      "author": "Sarkaar",
+      "videoUrl": "https://www.youtube.com/watch?v=zWh3CShX_do",
+      "description": "THis is superb Dance",
+      "subscriber": "5",
+      "isLive": "true",
+      "videoId": "14bd1db2-2994-4544-b568-6cccaca95d45",
+      "userId": "7391a960-9d90-46dd-ac71-da2ea8a648b3",
       "id": 1
     },
     {
-      "email": "saudd@gmail.com",
-      "password": "12345",
+      "title": "",
+      "thumbnailUrl": "",
+      "duration": "",
+      "uploadTime": "Tue Oct 10 2023 19:15:01 GMT+0530 (India Standard Time)",
+      "views": "",
+      "author": "",
+      "videoUrl": "",
+      "description": "",
+      "subscriber": "",
+      "isLive": true,
+      "videoId": "6cc0ae5e-77fa-4eab-b9db-29ea2d9aff09",
+      "userId": "7391a960-9d90-46dd-ac71-da2ea8a648b3",
       "id": 2
+    },
+    {
+      "title": "",
+      "thumbnailUrl": "",
+      "duration": "",
+      "uploadTime": "Tue Oct 10 2023 19:19:19 GMT+0530 (India Standard Time)",
+      "views": "",
+      "author": "",
+      "videoUrl": "",
+      "description": "",
+      "subscriber": "",
+      "isLive": true,
+      "videoId": "cf9fd31a-2412-4a03-bd55-2ae78473a93e",
+      "userId": "7391a960-9d90-46dd-ac71-da2ea8a648b3",
+      "id": 3
     }
   ]
 }

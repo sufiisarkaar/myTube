@@ -6,6 +6,8 @@ import { YcontactComponent } from './ycontact/ycontact.component';
 import { YhomeComponent } from './yhome/yhome.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MyVideoComponent } from './my-video/my-video.component';
 
 const routes: Routes = [
   {path:'', component:YhomeComponent},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path:'contact', component:YcontactComponent},
   {path:'videoplay/:id', component:VideoPlayedComponent},
   {path:'login', component:LoginComponent},
-  {path:'signup', component:SignupComponent},
+  {path:'register', component:SignupComponent},
+  {path:'profile', component:ProfileComponent},
+  {path:'myVideo', component:MyVideoComponent},
 ];
 
 @NgModule({
