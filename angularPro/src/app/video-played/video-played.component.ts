@@ -94,6 +94,7 @@ export class VideoPlayedComponent implements OnInit  {
       const video = res.find((id: any) => {
         return id.id == this.id;
       })
+      console.log("vedio--------",video)
       if (video) {
         console.log("find");
         this.videoBox = video;

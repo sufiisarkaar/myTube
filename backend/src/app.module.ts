@@ -1,20 +1,29 @@
 import { MiddlewareConsumer, Module, NestMiddleware, NestModule } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BooksController } from './books/books.controller';
-import { BooksModule } from './books/books.module';
-import { BooksService } from './books/books.service';
-import { GlobalMiddleware } from './global/global.middleware';
+import {  Users } from './users/entities/user.entity';
+import { UsersModule } from './users/users.module';
 
 
 @Module({
-  imports: [BooksModule],
-  controllers: [AppController,BooksController],
-  providers: [AppService,BooksService],
+  imports: [TypeOrmModule.forRoot({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    password: '123456',
+    username: 'postgres',
+    entities: [
+      Users
+    ],
+    database: 'myTube',
+    synchronize: true,
+    logging: true,
+  }),UsersModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule implements NestModule{
-  configure(consumer: MiddlewareConsumer) {
-   consumer.apply(GlobalMiddleware).forRoutes("books");
-  }
+export class AppModule {
+
  
 }

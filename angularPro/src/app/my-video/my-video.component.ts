@@ -14,6 +14,7 @@ export class MyVideoComponent implements OnInit {
   videoPostForm:FormGroup;
   user:any;
   spin:boolean=false;
+  videoBox:any[] = [];
 
   constructor(private PS:ProfileService, private FB:FormBuilder, private VS:VideoService, private _snack:MatSnackBar){
     this.videoPostForm = this.FB.group({
@@ -33,6 +34,7 @@ export class MyVideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkUser();
+    this.getVideoByUser();
   }
     
 
@@ -51,19 +53,32 @@ export class MyVideoComponent implements OnInit {
   postVideo(){
     this.spin = true;
     setTimeout(() => {
-    const videoId = uuid.v4();
+    const id = uuid.v4();
     const userId = this.user.id;
     const video = {
 ...this.videoPostForm.value,
-videoId,
+id,
 userId
     }
     this.PS.videoPost(video).subscribe((res:any)=>{
 this.spin = false;
+this.getVideoByUser();
 this._snack.open("Video uploaded success","close",{ duration: 5000})
     });
       
   }, 3000);
+  }
+
+
+  getVideoByUser(){
+    this.VS.getVideo().subscribe((res:any)=>{
+const filterVideos = res.filter((video:any)=>{
+  return video.userId === this.user.id;
+});
+if(filterVideos){
+  this.videoBox = filterVideos;
+}
+    })
   }
 
 }
