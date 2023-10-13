@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid';
+import { ProfileService } from '../services/profile.service';
 import { VideoService } from '../services/video.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class SignupComponent {
   signUpForm:FormGroup;
   spin:boolean = false;
 
-  constructor(private route:Router, private fb:FormBuilder, private VS:VideoService, private _snackBar: MatSnackBar 
+  constructor(private route:Router, private fb:FormBuilder, private VS:VideoService, private _snackBar: MatSnackBar , private PS:ProfileService
     ){
     this.signUpForm = this.fb.group({
       name : this.fb.control('',[Validators.required]),
@@ -28,16 +29,15 @@ export class SignupComponent {
   register(){
     this.spin = true;
     setTimeout(() => {
-     const id = uuid.v4();
-const User = {
-      ...this.signUpForm.value,
-       id
-      };
+    //  const id = uuid.v4();
+const User = this.signUpForm.value;
+       
+      
 
-  this.VS.userPost(User).subscribe((res)=>{
+  this.PS.userPost(User).subscribe((res:any)=>{
    this.spin = false;
     this.route.navigateByUrl('/login');
-    this._snackBar.open( "You created account successfully", "",{ duration : 5000});
+    this._snackBar.open( res.Success, "",{ duration : 5000});
   });
 }, 3000);
   }

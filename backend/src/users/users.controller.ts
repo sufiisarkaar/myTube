@@ -14,25 +14,21 @@ export class UsersController {
 
   @Get('/userget')
   findAll() {
-   const users = this.usersService.findAll();
-   if(users){
-     return { "success" : "find users", users}
-   }else{
-    return { "error" : "no users find"}
-   }
+   return this.usersService.findAll();
+  
   }
 
-  @Get(':id')
+  @Get('userget/:id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
 
-  @Put(':id')
+  @Put('userupdate/:id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete(':id')
+  @Delete('userdelete/:id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }

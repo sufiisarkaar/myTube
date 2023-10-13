@@ -1,20 +1,32 @@
-import { PrimaryGeneratedColumn, Column, Entity } from "typeorm";
+import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn, UpdateDateColumn, Unique } from "typeorm";
 
 @Entity()
 export class Users {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    readonly id: number;
   
-    @Column()
+    @Column({ unique: true })
+    @Unique('Duplicate name', ['name'])
     name: string;
-  
-    @Column()
+
+    @Column({ unique: true })
+    @Unique('Duplicate email', ['email'])
     email: string;
 
-    @Column()
-    number : number;
+
+    @Column({ unique: true })
+    @Unique('Duplicate number', ['number'])
+    number: string;
+
 
     @Column()
-    password : string;
+    password: string;
+
+    @CreateDateColumn()
+    readonly createdAt: Date;
+  
+    @UpdateDateColumn()
+    updatedAt: Date;
+  
 }
