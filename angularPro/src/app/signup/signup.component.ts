@@ -38,6 +38,10 @@ const User = this.signUpForm.value;
    this.spin = false;
     this.route.navigateByUrl('/login');
     this._snackBar.open( res.Success, "",{ duration : 5000});
+  },(err)=>{
+    this.spin = false;
+    this._snackBar.open( "Invalid Credentials", "",{ duration : 5000});
+
   });
 }, 3000);
   }

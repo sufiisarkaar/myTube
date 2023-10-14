@@ -64,6 +64,10 @@ userId
 this.spin = false;
 this.getVideoByUser();
 this._snack.open("Video uploaded success","close",{ duration: 5000})
+    },(err)=>{
+      this.spin = false;
+      this._snack.open( "Something went wrong", "",{ duration : 5000});
+  
     });
       
   }, 3000);
