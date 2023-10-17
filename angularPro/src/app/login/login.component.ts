@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
     const User = this.loginForm.value;
     this.PS.userGet().subscribe((res:any)=>{
       console.log(res,"<======login");
+      this.spin = false;
       
 const userFind = res.Users.find((u:any)=>{
   return u.email === User.email && u.password === User.password ;
 });
 if(userFind){
-  this.spin = false;
   console.log("find");
   localStorage.setItem("user", JSON.stringify( userFind ) );
   this.route.navigateByUrl('/');
@@ -52,6 +52,8 @@ if(userFind){
   if(getLocalUser){
   this.VS.loggedUser.next(true)
   }else{
+    this.spin = false;
+
     this.VS.loggedUser.next(false)
   }
   this._snackBar.open( "You have logged in with" ,  getLocalUser.email, {  duration: 5000} );

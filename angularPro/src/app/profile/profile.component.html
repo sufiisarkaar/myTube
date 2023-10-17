@@ -25,8 +25,33 @@
             <button class="btn btn-dark d-flex" (click)="updateUser()"> <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Updating...' : 'Update Profile'   }}  </button>
         </div>
 
+        <hr class="mt-5">
+
+<span><a class="btn d-flex" (click)="setting()"><mat-icon>autorenew</mat-icon> {{ Setting ? 'Close Setting' : 'Open Setting' }}</a>
+<hr></span>
+
     
+        <div class="col-8 mt-4 mb-2 d-flex" *ngIf="Setting">
+            <button class="btn btn-secondary" (click)="openDialog(deleteConfirm)">Delete Profile  </button>
+        </div>
 
         </div>
     </form>
 </div>
+
+
+<ng-template #deleteConfirm>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 mt-3">
+            <h4>Do you want to DELETE your myTube account?</h4>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-danger d-flex" (click)="deleteUser()"> <mat-spinner mode="indeterminate" [diameter]="20" color="dark" class="matSpinner"  *ngIf="deletespin"></mat-spinner> &nbsp; {{ deletespin ? 'Deleting...' : 'Confirm'   }}</button>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-dark" [mat-dialog-close]="true">Cancel</button>
+        </div>
+    </div>
+</div>
+</ng-template>

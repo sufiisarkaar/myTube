@@ -31,10 +31,7 @@ export class SignupComponent {
     setTimeout(() => {
     //  const id = uuid.v4();
 const User = this.signUpForm.value;
-       
-      
-
-  this.PS.userPost(User).subscribe((res:any)=>{
+     this.PS.userPost(User).subscribe((res:any)=>{
    this.spin = false;
     this.route.navigateByUrl('/login');
     this._snackBar.open( res.Success, "",{ duration : 5000});

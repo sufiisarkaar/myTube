@@ -88,4 +88,9 @@ export class YheaderComponent implements OnInit {
     this.R.navigateByUrl('/');
   }
 
+  numClick:boolean = false;
+click(){
+this.numClick =! this.numClick;
+}
+
 }

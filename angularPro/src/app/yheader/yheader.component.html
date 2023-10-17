@@ -29,19 +29,30 @@
 
 
        <span class="navbar-text d-flex">
+
+
+        <div class="dropdown"  *ngIf="loggedUser">
+          <button class="btn btn-secondary btm-sm " type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="click()">
+            {{ numClick ? 'x' : '=' }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" *ngIf="loggedUser">
+            <li><a class="dropdown-item"[routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/myVideo']" routerLinkActive="router-link-active" >My Video</a></li>
+            <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
+          
+          </ul>
+        </div>
+
   <mat-icon class="matIcon">people </mat-icon>
   <a routerLink="/login" *ngIf="!loggedUser">
     &nbsp;Sign in
   </a>
 
-  <ul class="profile-options" *ngIf="loggedUser">
-    <li [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</li>
-    <li [routerLink]="['/myVideo']" routerLinkActive="router-link-active" >My Video</li>
-    <li (click)="logOut()">Logout</li>
-  </ul>
+  
 
   
 </span>
+
 
 
         

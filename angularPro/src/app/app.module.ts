@@ -22,7 +22,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ProfileComponent } from './profile/profile.component';
 import { MyVideoComponent } from './my-video/my-video.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {  MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     ReactiveFormsModule,
     BrowserAnimationsModule ,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

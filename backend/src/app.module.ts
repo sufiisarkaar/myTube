@@ -3,18 +3,18 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {  Users } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
-
 
 @Module({
   imports: [
+   
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot({
         isGlobal:true,
         envFilePath : ".local.env",
         // envFilePath : ".prod.env"
       }),
+     
     UsersModule,
     
     ],
@@ -36,6 +36,6 @@ import { UsersModule } from './users/users.module';
   providers: [AppService],
 })
 export class AppModule {
-
+ 
  
 }

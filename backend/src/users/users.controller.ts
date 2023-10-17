@@ -20,7 +20,10 @@ export class UsersController {
 
   @Get('userget/:id')
   findOne(@Param('id') id: string) {
+    console.log("find one");
+    
     return this.usersService.findOne(+id);
+    
   }
 
   @Put('userupdate/:id')

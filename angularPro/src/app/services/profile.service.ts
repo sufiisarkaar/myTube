@@ -10,7 +10,7 @@ export class ProfileService {
 
 
   userPost(user:any){
-    return this.http.post("http://localhost:3000/users/userspost",user);
+    return this.http.post("http://localhost:3000/users/userpost",user);
    }
   
    userGet(){
@@ -19,9 +19,12 @@ export class ProfileService {
 
 
 updateProfile(id:any,updatedData:any){
-  return this.http.put("http://localhost:3000/user/" +id, updatedData)
+  return this.http.put("http://localhost:3000/users/userupdate/"+id, updatedData)
 }
 
+deleteProfile(id:any){
+  return this.http.delete("http://localhost:3000/users/userdelete/"+id);
+}
 
 
 
