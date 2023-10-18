@@ -22,17 +22,17 @@ export class UsersController {
   findOne(@Param('id') id: string) {
     console.log("find one");
     
-    return this.usersService.findOne(+id);
+    return this.usersService.findOne(id);
     
   }
 
   @Put('userupdate/:id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+    return this.usersService.update(id, updateUserDto);
   }
 
   @Delete('userdelete/:id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+    return this.usersService.remove(id);
   }
 }

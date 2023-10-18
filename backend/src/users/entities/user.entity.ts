@@ -4,10 +4,9 @@ import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn, UpdateDateCol
 export class Users {
 
     @PrimaryGeneratedColumn()
-    readonly id: number;
+     id: any;
   
-    @Column({ unique: true })
-    @Unique('Duplicate name', ['name'])
+    @Column()
     name: string;
 
     @Column({ unique: true })

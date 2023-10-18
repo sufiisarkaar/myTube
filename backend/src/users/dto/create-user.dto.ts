@@ -3,6 +3,7 @@ import { Unique } from "typeorm";
 
 export class CreateUserDto {
   
+  
     @IsString()
      name: string;
   
@@ -14,5 +15,5 @@ export class CreateUserDto {
   
      @IsString()
      password: string;
-  
+ 
 }

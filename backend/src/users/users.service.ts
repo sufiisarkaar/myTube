@@ -4,60 +4,41 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Users } from './entities/user.entity';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
-
-
-
 export class UsersService {
 
   constructor(@InjectRepository(Users) private readonly userRepository: Repository<Users>) {
   }
 
-  create(createUserDto: CreateUserDto) {
+ async create(createUserDto: CreateUserDto) {
 
     let user = new Users;
+    // user.id =  uuidv4();
     user.name = createUserDto.name;
     user.email = createUserDto.email;
     user.number = createUserDto.number;
     user.password = createUserDto.password;
-    let userCreated = this.userRepository.save(user);
-    if (userCreated) {
+   await this.userRepository.save(user);
+
       return { "Success": "User Has Been Created Successfully", "User": user }
-    } else {
-      return { "Error": "Please Provide Info." }
-    }
+   
   }
 
   async findAll() {
-    let users = await this.userRepository.find();
-    if (users) {
-      return { "Success": "Users Find", "Users": users }
-    } else {
-      return { "Error": "No users at this time" }
-    }
+    return await this.userRepository.find();
   }
 
-  async findOne(id: number) {
-    let user = await this.userRepository.findBy({ 'id': id });
-    if (user) {
-      return { "Success": "User Find", "User": user };
-    } else {
-      return { "Error": "Invalid user Id" };
-    }
+  async findOne(id: string) {
+   return await this.userRepository.findBy({ 'id': id });
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
-    await this.userRepository.update(id, updateUserDto);
-    const userUpdated = await this.userRepository.findBy({ 'id': id });
-    if (userUpdated) {
-      return { "Success": "User Updated", "User": userUpdated };
-    } else {
-      return { "Error": "Invalid User Id" };
-    }
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    return await this.userRepository.update(id, updateUserDto);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.userRepository.delete(id);
   }
 }
