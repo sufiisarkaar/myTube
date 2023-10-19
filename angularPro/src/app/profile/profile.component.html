@@ -22,17 +22,21 @@
         </div>
 
         <div class="col-8 mt-4 mb-2 d-flex">
-            <button class="btn btn-dark d-flex" (click)="updateUser()"> <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Updating...' : 'Update Profile'   }}  </button>
+            <button class="{{ btn }} d-flex" (click)="updateUser()"> <mat-spinner mode="indeterminate" [diameter]="20" color="warn" class="matSpinner"  *ngIf="spin"></mat-spinner> &nbsp; {{ spin ? 'Updating...' : 'Update Profile'   }}  </button>
         </div>
 
         <hr class="mt-5">
 
-<span><a class="btn d-flex" (click)="setting()"><mat-icon>autorenew</mat-icon> {{ Setting ? 'Close Setting' : 'Open Setting' }}</a>
+<span><a class="{{ btn }} d-flex" (click)="setting()"><mat-icon>autorenew</mat-icon> {{ Setting ? 'Close Setting' : 'Open Setting' }}</a>
 <hr></span>
 
     
         <div class="col-8 mt-4 mb-2 d-flex" *ngIf="Setting">
-            <button class="btn btn-secondary" (click)="openDialog(deleteConfirm)">Delete Profile  </button>
+            <button class="{{ btn }}" (click)="openDialog(deleteConfirm)">Delete Profile  </button>
+        </div>
+
+        <div class="col-8 mt-4 mb-2 d-flex" *ngIf="Setting">
+            <button class="{{ btn }}" (click)="darkTheme()" > {{ theme ? 'Light Theme' : 'Dark Theme' }} </button>
         </div>
 
         </div>

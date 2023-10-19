@@ -8,7 +8,7 @@ export class VideoService {
 
   loggedUser = new EventEmitter<any>();
   videoId  = new  EventEmitter<any>();
-
+  Bgtheme = new EventEmitter<any>();
   constructor( private http:HttpClient) { }
 
   getVideo(){

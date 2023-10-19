@@ -29,6 +29,7 @@ constructor(private PS:ProfileService, private fb: FormBuilder, private VS:Video
 
 ngOnInit(): void {
   this.checkUser();
+  this.themes();
 }
 
 
@@ -51,10 +52,13 @@ ngOnInit(): void {
    const updatedUser = this.updateForm.value;
    this.PS.updateProfile(userId,updatedUser).subscribe((res:any)=>{
 this.spin = false;
-const updatedUser = res.User;
+res.forEach((update:any) => {
+  let updatedUser = update ;
+  
+  localStorage.setItem("user", JSON.stringify( updatedUser ));
+});
 console.log("updateser=>>>>>>>>>",res);
 
-localStorage.setItem("user", JSON.stringify( updatedUser ));
 this._snack.open(this.user.name,"You'r Profile Updated",{ duration:5000})
    });
 },2000)
@@ -98,8 +102,44 @@ this.Setting =! this.Setting;
   });
 }
 
+
+theme:boolean =false;
+
+darkTheme(){
+this.themes();
+this.theme =! this.theme;
+const currentTheme = localStorage.getItem('theme');
+let newTheme;
+  if (currentTheme === 'dark') {
+    newTheme = 'light';
+    console.log("light");
+    this.theme = true;
+    
+  } else {
+    console.log("Dark");
+    this.theme = false;
+    newTheme = 'dark';
+  }
+  localStorage.setItem('theme', newTheme);
+
 }
-function DialogDataExampleDialog(DialogDataExampleDialog: any, arg1: { data: { animal: string; }; }) {
-  throw new Error('Function not implemented.');
+    
+ btn:any;
+  
+themes(){
+  let currentTheme = localStorage.getItem('theme');
+   if(currentTheme == 'dark'){
+     let light ='bg-dark text-light';
+     this.btn = 'btn btn-light text-dark';
+ this.VS.Bgtheme.next(light)
+   }else{
+     this.btn = 'btn btn-dark text-light';
+     let dark = 'bg-light text-dark';
+     this.VS.Bgtheme.next(dark)
+   }
+ }
+
+
+
 }
 

@@ -17,6 +17,10 @@ export class ProfileService {
     return this.http.get("http://localhost:3000/users/userget");
    }
 
+   userGetById(id:any){
+    return this.http.get("http://localhost:3000/users/userget/"+id);
+   }
+
 
 updateProfile(id:any,updatedData:any){
   return this.http.put("http://localhost:3000/users/userupdate/"+id, updatedData)

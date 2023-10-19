@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       console.log(res,"<======login");
       this.spin = false;
       
-const userFind = res.Users.find((u:any)=>{
+const userFind = res.find((u:any)=>{
   return u.email === User.email && u.password === User.password ;
 });
 if(userFind){

@@ -10,12 +10,20 @@ import { VideoService } from './services/video.service';
 export class AppComponent implements OnInit {
   title = 'angularPro';
   showVideoSection: boolean;
+Bgtheme:any; 
 
-  constructor(private VS: VideoService, private router: Router) { }
+  constructor(private VS: VideoService, private router: Router) {  }
 
   ngOnInit(): void {
     this.checkUser();
     this.checkNavigation();
+    this.themes();
+
+   this.VS.Bgtheme.subscribe((res:any)=>{
+    this.Bgtheme = res;
+    
+  });
+  console.log("theme======>",  this.Bgtheme );
   }
 
 
@@ -52,4 +60,18 @@ export class AppComponent implements OnInit {
     });
 
   }
+
+ 
+  themes(){
+    let currentTheme = localStorage.getItem('theme');
+     if(currentTheme == 'dark'){
+       let light ='bg-dark text-light btn-light';
+   this.VS.Bgtheme.next(light)
+     }else{
+       let dark = 'bg-light text-dark btn-dark';
+       this.VS.Bgtheme.next(dark)
+     }
+   }
+
+
 }
